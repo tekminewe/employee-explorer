@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverviewPage should get employee's subordinates 1`] = `
+<div>
+  <div
+    class="sc-AykKC jjVxQu"
+  >
+    <div
+      class="sc-AykKD kOsfAI"
+    >
+      <h1
+        class="sc-AykKE cuheMn"
+      >
+        Employee Overview
+      </h1>
+    </div>
+    <div
+      class="sc-AykKF hBaFEr"
+    >
+      <p>
+        Subordinates of employee 
+        <span
+          class="sc-AykKG bYBuez"
+        >
+          Henry Lee
+        </span>
+      </p>
+      <ul
+        class="sc-AykKH klLnVA"
+      >
+        <li
+          class="sc-AykKI fVbxAQ"
+        >
+          Subordinate 1
+        </li>
+        <li
+          class="sc-AykKI fVbxAQ"
+        >
+          Subordinate 2
+        </li>
+        <li
+          class="sc-AykKI fVbxAQ"
+        >
+          Subordinate 3
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
