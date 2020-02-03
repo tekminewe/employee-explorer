@@ -32,4 +32,25 @@ describe('OverviewPage', () => {
     })
     expect(component.container).toMatchSnapshot();
   });
+
+  test('should show loading when getting subordinates', async () => {
+    const props = {
+      match: {
+        params: {
+          id: 'Henry Lee',
+        },
+      },
+    }
+
+    getSubordinateForEmployee.mockResolvedValue([
+      'Subordinate 1',
+      'Subordinate 2',
+      'Subordinate 3',
+    ]);
+
+    await act(async () => {
+      const { container } = render(<OverviewPage {...props} />);
+      expect(container).toMatchSnapshot();
+    })
+  });
 });

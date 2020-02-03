@@ -48,3 +48,29 @@ exports[`OverviewPage should get employee's subordinates 1`] = `
   </div>
 </div>
 `;
+
+exports[`OverviewPage should show loading when getting subordinates 1`] = `
+<div>
+  <div
+    class="sc-AykKC jjVxQu"
+  >
+    <div
+      class="sc-AykKD kOsfAI"
+    >
+      <h1
+        class="sc-AykKE cuheMn"
+      >
+        Employee Overview
+      </h1>
+    </div>
+    <div
+      class="sc-AykKF hBaFEr"
+    >
+      <div
+        class="sc-AykKJ cJvZpC"
+        data-testid="loading"
+      />
+    </div>
+  </div>
+</div>
+`;
