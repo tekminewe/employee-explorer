@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { getSubordinateForEmployee, endpoint } from '../index';
+import NotFoundError from '../../../errors/not_found_error';
 
 jest.mock('axios');
 
@@ -69,6 +70,22 @@ describe('Employee', () => {
         'Employee 4',
         'Employee 5',
       ]);
+    });
+
+    test('should throw NotFoundError if employee not found', async () => {
+      expect.assertions(1);
+
+      axios.get.mockRejectedValue({
+        response: {
+          status: 404,
+        },
+      });
+
+      try {
+        await getSubordinateForEmployee('Justin');
+      } catch (e) {
+        expect(e instanceof NotFoundError).toBeTruthy();
+      }
     });
   });
 });

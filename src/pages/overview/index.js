@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Container, TitleContainer, SubordinateContainer, SubordinateList, SubordinateListItem, Employee, Title } from './overview.styles';
 import { getSubordinateForEmployee } from '../../models/employee';
+import NotFoundError from '../../errors/not_found_error';
+import NotFoundErrorMessage from '../../components/not_found_error_message';
 import GeneralErrorMessage from '../../components/general_error_message';
 import { Spinner } from '../../components/common/spinner';
 
@@ -28,7 +30,11 @@ const OverviewPage = ({ match }) => {
   }, [id]);
 
   if (error) {
-    return <GeneralErrorMessage />
+    if (error instanceof NotFoundError) {
+      return <NotFoundErrorMessage />;
+    } else {
+      return <GeneralErrorMessage />
+    }
   }
 
   return (

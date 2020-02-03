@@ -1,4 +1,5 @@
 import axios from 'axios';
+import NotFoundError from '../../errors/not_found_error';
 
 export const endpoint = 'http://api.additivasia.io/api/v1/assignment/employees';
 
@@ -28,6 +29,10 @@ export const getSubordinateForEmployee = async (employeeName) => {
     set.delete(employeeName);
     return [...set];
   } catch (error) {
-    throw new Error('Unexpected error occured');
+    if (error.response.status === 404) {
+      throw new NotFoundError('Employee not found');
+    } else {
+      throw new Error('Unexpected error occured');
+    }
   }
 };
