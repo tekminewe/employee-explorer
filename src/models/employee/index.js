@@ -28,6 +28,6 @@ export const getSubordinateForEmployee = async (employeeName) => {
     set.delete(employeeName);
     return [...set];
   } catch (error) {
-    console.log(error);
+    throw new Error('Unexpected error occured');
   }
 };

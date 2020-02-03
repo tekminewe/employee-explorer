@@ -1,25 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { Container, TitleContainer, SubordinateContainer, SubordinateList, SubordinateListItem, Employee, Title } from './overview.styles';
 import { getSubordinateForEmployee } from '../../models/employee';
+import GeneralErrorMessage from '../../components/general_error_message';
 import { Spinner } from '../../components/common/spinner';
 
 const OverviewPage = ({ match }) => {
   const [subordinates, setSubordinates] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const { params } = match;
   const { id } = params;
 
   useEffect(() => {
     const getSubordinate = async () => {
-      const subs = await getSubordinateForEmployee(id);
-      setSubordinates(subs);
+      try {
+        const subs = await getSubordinateForEmployee(id);
+        setSubordinates(subs);
+      } catch (error) {
+        setError(error);
+      }
 
       setLoading(false);
     }
 
     getSubordinate();
   }, [id]);
+
+  if (error) {
+    return <GeneralErrorMessage />
+  }
 
   return (
     <Container>

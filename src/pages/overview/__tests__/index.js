@@ -53,4 +53,22 @@ describe('OverviewPage', () => {
       expect(container).toMatchSnapshot();
     })
   });
+
+  test('should show general error message if other error', async () => {
+    const props = {
+      match: {
+        params: {
+          id: 'Henry Lee',
+        },
+      },
+    };
+
+    getSubordinateForEmployee.mockRejectedValue(new Error('Other error'));
+
+    let component;
+    await act(async () => {
+      component = render(<OverviewPage {...props} />);
+    })
+    expect(component.container).toMatchSnapshot();
+  });
 });

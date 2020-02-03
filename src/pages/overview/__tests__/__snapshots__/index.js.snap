@@ -49,6 +49,25 @@ exports[`OverviewPage should get employee's subordinates 1`] = `
 </div>
 `;
 
+exports[`OverviewPage should show general error message if other error 1`] = `
+<div>
+  <div
+    class="sc-AykKJ dWHlJx"
+  >
+    <svg
+      class="sc-fzXfLO gjphZj"
+    >
+      alarm.svg
+    </svg>
+    <h1
+      class="sc-AykKK cEQxlF"
+    >
+      Opps something goes wrong
+    </h1>
+  </div>
+</div>
+`;
+
 exports[`OverviewPage should show loading when getting subordinates 1`] = `
 <div>
   <div
@@ -67,7 +86,7 @@ exports[`OverviewPage should show loading when getting subordinates 1`] = `
       class="sc-AykKF hBaFEr"
     >
       <div
-        class="sc-AykKJ cJvZpC"
+        class="sc-fzXfLP fOEUNm"
         data-testid="loading"
       />
     </div>
